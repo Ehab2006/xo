@@ -73,12 +73,12 @@ export default function game() {
     <div className="flex flex-row justify-center items-center bg-gradient-to-r from-blue-950 to-red-950 h-screen">
         
         <div className="grid grid-cols-3 gap-4" id="Game">
-            <h1 id="Info" className="bg-white rounded-lg col-span-3 h-16 flex flex-row justify-center items-center">{player} Player</h1>
+            <h1 id="Info" className="bg-white text-blue-600 rounded-lg col-span-3 h-16 flex flex-row justify-center items-center">{player} Player</h1>
             {
                 List.map((i)=>{
                     return(
                         <div key={i.id} className="bg-white min-h-24 min-w-24 rounded-lg hover:bg-gray-400" >
-                            <strong className="flex flex-row justify-center items-center h-full" id={i.id.toString()} onClick={()=> play(i.id)}></strong>
+                            <strong className="flex flex-row justify-center items-center text-blue-600 h-full" id={i.id.toString()} onClick={()=> play(i.id)}></strong>
                         </div>
                     )
                 })
