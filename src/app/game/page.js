@@ -1,6 +1,4 @@
-"use client"
-
-import { useState } from "react"
+'use client'
 
 let List = [
     {id:0 , value:"0"} ,
@@ -15,7 +13,7 @@ let List = [
 ]
 
 export default function game() {
-    let [ player , setPlayer ] = useState("X")
+    let player = "X"
 
     const message = (text)=>{
         document.getElementById("Info").innerHTML = text
@@ -27,27 +25,33 @@ export default function game() {
     }
     const play = (postion)=>{
         if (List[postion].value == postion ){
-
+            
             List[postion].value = player
             
             document.getElementById(postion).innerHTML = player
-
+            if(player == "X"){
+                player = "O"
+                document.getElementById("Info").innerHTML = "O Player"
+            }else if(player == "O"){
+                player = "X"
+                document.getElementById("Info").innerHTML = "X Player"
+            }
             if(List[0].value == List[1].value && List[1].value == List[2].value){
-                message(`The winner is ${player} player.`)
+                message(`The winner is ${List[1].value} player.`)
             }else if(List[3].value == List[4].value && List[4].value == List[5].value){
-                message(`The winner is ${player} player.`)
+                message(`The winner is ${List[4].value} player.`)
             }else if(List[6].value == List[7].value && List[7].value == List[8].value){
-                message(`The winner is ${player} player.`)
+                message(`The winner is ${List[7].value} player.`)
             }else if(List[0].value == List[3].value && List[3].value == List[6].value){
-                message(`The winner is ${player} player.`)
+                message(`The winner is ${List[3].value} player.`)
             }else if(List[1].value == List[4].value && List[4].value == List[7].value){
-                message(`The winner is ${player} player.`)
+                message(`The winner is ${List[4].value} player.`)
             }else if(List[2].value == List[5].value && List[5].value == List[8].value){
-                message(`The winner is ${player} player.`)
+                message(`The winner is ${List[5].value} player.`)
             }else if(List[0].value == List[4].value && List[4].value == List[8].value){
-                message(`The winner is ${player} player.`)
+                message(`The winner is ${List[4].value} player.`)
             }else if(List[2].value == List[4].value && List[4].value == List[6].value){
-                message(`The winner is ${player} player.`)
+                message(`The winner is ${List[4].value} player.`)
             }else if(
                 (List[0].value == "X" || List[0].value == "O") && 
                 (List[1].value == "X" || List[1].value == "O")&&
@@ -60,13 +64,6 @@ export default function game() {
                 (List[8].value == "X" || List[8].value == "O")){
                     message("The draw.")
             }
-
-            if(player == "X"){
-                setPlayer("O")
-            }else if(player == "O"){
-                setPlayer("X")
-            }
-
         }else{
             undefined
         }
