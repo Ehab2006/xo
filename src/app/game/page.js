@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import React from "react";
 
 let List = [
     {id:0 , value:"0"} ,
@@ -14,8 +14,8 @@ let List = [
     {id:8 , value:"8"} ,
 ]
 
-export default function game() {
-    let [ player , setPlayer ] = useState("X")
+export default function Game() {
+    let [ player , setPlayer ] = React.useState("X")
 
     const message = (text)=>{
         document.getElementById("Info").innerHTML = text
@@ -76,12 +76,12 @@ export default function game() {
     <div className="flex flex-row justify-center items-center bg-gradient-to-r from-blue-950 to-red-950 h-screen">
         
         <div className="grid grid-cols-3 gap-4" id="Game">
-            <h1 id="Info" className="bg-white rounded-lg col-span-3 h-16 flex flex-row justify-center items-center">{player} Player</h1>
+            <h1 id="Info" className="bg-white rounded-lg col-span-3 h-16 flex flex-row justify-center items-center text-blue-600">{player} Player</h1>
             {
                 List.map((i)=>{
                     return(
                         <div key={i.id} className="bg-white min-h-24 min-w-24 rounded-lg hover:bg-gray-400" >
-                            <strong className="flex flex-row justify-center items-center h-full" id={i.id.toString()} onClick={()=> play(i.id)}></strong>
+                            <strong className="flex flex-row justify-center items-center h-full text-blue-600" id={i.id.toString()} onClick={()=> play(i.id)}></strong>
                         </div>
                     )
                 })
